@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чат</title>
-    <style>
-        html,body{
-            height: 100%;            
-        }
-        body{
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #field, #chat{
-            width: 100%;
-            box-sizing: border-box;
-        }
-        #chat{
-            height: 10em;
-        }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div>
-        <input type="text" id="field">
-        <textarea id="chat"></textarea>
+    <div class="container">
+        <div class="row">
+            
+        <!-- begin lesson 3: -->
+        <select class="custom-select" id="chatname">
+            <option value="ws://192.168.1.44:591" selected>чат local</option>
+            <option value="ws://192.168.1.38:591">чат remote</option>
+        </select>
+        <!-- end lesson 3 -->
+        <input type="text" class="form-control" id="name" placeholder="Введите имя пользователя" value="Win.Grigoreva"
+            required>
+        <div id="chat_body" class="form-control" readonly>
+            <div id="chat">
+                <!-- <div class="message alert alert-light">
+                    <div class="username">User</div>
+                    <div class="usertext">Text</div>
+                </div> -->
+            </div>
+        </div>
+        <textarea type="text" class="form-control" id="text" placeholder="Введите сообщение" required rows="3"></textarea>
     </div>
-<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-<script src="script.js"></script>
+</div>
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
