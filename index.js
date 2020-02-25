@@ -27,10 +27,10 @@ server.on("connection", function(socket){
 });
 
 
-let express = require("express");
-let app = express();
-app.use(express.static(__dirname));
-app.get("/", function (request, response){
-response.sendFile('index.html');
-})
-app.listen(80);
+// let express = require("express");
+// let app = express();
+// app.use(express.static(__dirname));
+// app.get("/", function (request, response){
+// response.sendFile('index.html');
+// })
+// app.listen(80);
