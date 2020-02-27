@@ -6,7 +6,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("science.jpg") no-repeat;
+    // background: url("./science.jpg") no-repeat; 
     background-size: 100% 100%;
 }
 .row{
@@ -15,7 +15,6 @@ body{
     align-items: center;
 }
 #text, #chat_body, #name, #chatname{
-    /* width: 600px; */
     width: 70%;
     box-sizing: border-box;
 }
@@ -34,11 +33,14 @@ body{
 .message-right{
     margin-right: 0;
 }
+
+$position: absolute; 
+
 .message-right:before { 
 	content: ' '; 
-	position: absolute; 
+	position: $position;
 	width: 0; 
-	height: 0; 
+	height: 0;
 	right:20px; 
 	top: 100%; 
 	border: 10px solid; 
@@ -46,9 +48,9 @@ body{
 }
 .message-right:after { 
 	content: ' '; 
-	position: absolute; 
+	position: $position;
 	width: 0; 
-	height: 0; 
+	height: 0;
 	right: 20px; 
 	top: 100%; 
 	border: 10px solid; 
@@ -59,9 +61,9 @@ body{
 }
 .message-left:before { 
 	content: ' '; 
-	position: absolute; 
+	position: $position;
 	width: 0; 
-	height: 0; 
+	height: 0;
 	left: 20px; 
 	top: 100%; 
 	border: 10px solid; 
@@ -69,9 +71,9 @@ body{
 }
 .message-left:after { 
 	content: ' '; 
-	position: absolute; 
+	position: $position;
 	width: 0; 
-	height: 0; 
+	height: 0;
 	left: 20px; 
 	top: 100%; 
 	border: 10px solid; 

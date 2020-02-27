@@ -1,0 +1,75 @@
+html,body{
+    height: 100%;            
+}
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: url("./science.jpg") no-repeat; 
+    background-size: 100% 100%;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#text, #chat_body, #name, #chatname{
+    width: 70%;
+    box-sizing: border-box;
+}
+#chat_body {
+    height: 20em;
+    background-color: rgba(0, 128, 128, 0.1);
+    overflow-y: auto;
+}
+.message {
+    width: 70%;
+    margin: 10px auto 30px auto;
+}
+.username{
+    font-weight: bold;
+}
+.message-right{
+    margin-right: 0;
+}
+.msg{
+	position: absolute; 
+	width: 0; 
+	height: 0;
+}
+.message-right:before { 
+	content: ' '; 
+	.msg();
+	right:20px; 
+	top: 100%; 
+	border: 10px solid; 
+	border-color: #ced4da #ced4da transparent transparent; 
+}
+.message-right:after { 
+	content: ' '; 
+	.msg();
+	right: 20px; 
+	top: 100%; 
+	border: 10px solid; 
+	border-color: #fff #fff transparent transparent; 
+}
+.message-left{
+    margin-left: 0;
+}
+.message-left:before { 
+	content: ' '; 
+	.msg(); 
+	left: 20px; 
+	top: 100%; 
+	border: 10px solid; 
+	border-color: #ced4da transparent transparent #ced4da; 
+}
+.message-left:after { 
+	content: ' '; 
+	.msg();
+	left: 20px; 
+	top: 100%; 
+	border: 10px solid; 
+	border-color: #fff transparent transparent #fff; 
+}
