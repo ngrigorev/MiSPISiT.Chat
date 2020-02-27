@@ -1,5 +1,5 @@
 {
-  "name": "ws-chat",
+  "name": "chat",
   "author": "ngrigorev",
   "version": "1.0.1",
   "description": "",
@@ -13,8 +13,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "init": "^0.1.2",
-    "ip": "^1.1.5",
+    "express": "^4.17.1",
     "ws": "^7.2.1"
   },
   "devDependencies": {
@@ -22,7 +21,6 @@
     "concat-loader": "^0.1.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
-    "express": "^4.17.1",
     "extract-loader": "^4.0.3",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^5.1.0",
@@ -43,8 +41,8 @@
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
   },
-  "engines":{
+  "engines": {
     "npm": "^6.11.3",
-    "node":"^12.11.1"
+    "node": "^12.11.1"
   }
 }
