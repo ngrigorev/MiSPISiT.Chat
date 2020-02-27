@@ -1,25 +1,10 @@
-const path = require("path");
 const ws = require("ws").Server;
-const express = require("express");
-
-//#region web server
-const port = process.env.PORT || 80;
-const app = express();
-
-app.use(express.static(path.join(__dirname, 'Client/dist')));
-
-app.get("/", (req, res) => {
-    res.sendFile('/Client/dist/index.html');
-});
-
-app.listen(port, () => {
-    console.log(`Web run on http://localhost:${port}`);
-});
-//#endregion
 
 //#region ws server
-const server = new ws({ port: 500 }, () => {
-    console.log('WebSocket server run on ws://localhost:500');
+const port = process.env.PORT || 500;
+
+const server = new ws({ port }, () => {
+    console.log(`WebSocket server run on ws://localhost:${port}`);
 });
 
 const clients = new Set();
