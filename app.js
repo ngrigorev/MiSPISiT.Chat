@@ -3,15 +3,17 @@ const ws = require("ws").Server;
 const express = require("express");
 
 //#region web server
+const port = process.env.PORT || 80;
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'Client/dist')));
 
 app.get("/", (req, res) => {
     res.sendFile('/Client/dist/index.html');
-})
-app.listen(80, () => {
-    console.log('Web run on http://localhost');
+});
+
+app.listen(port, () => {
+    console.log(`Web run on http://localhost:${port}`);
 });
 //#endregion
 
