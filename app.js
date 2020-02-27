@@ -26,8 +26,8 @@ app.listen(port, () => {
 //#endregion
 
 //#region ws server
-const server = new ws({ port: 500 }, () => {
-    console.log('WebSocket server run on ws://localhost:500');
+const server = new ws({ port: port }, () => {
+    console.log(`WebSocket server run on ws://localhost:${port}`);
 });
 
 const clients = new Set();
