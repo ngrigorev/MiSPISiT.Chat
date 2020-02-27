@@ -10,7 +10,7 @@ $(document).ready(() => {
         if (ws) {
             ws.close();
             ws = null;
-            chatBox.remove();
+            $chatBox.remove();
         }
         
         ws = new WebSocket($chat.val()),
