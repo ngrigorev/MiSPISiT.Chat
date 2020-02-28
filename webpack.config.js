@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isDevMode = process.env.NODE_ENV === 'development';
 const isProdMode = !isDevMode;
-console.log('process.env: ', process.env);
+
 function getFileName(ext){
     return isProdMode ? `[name].${ext}` : `[name].[hash].${ext}`;
 }
