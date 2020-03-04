@@ -4,11 +4,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const isDevMode = process.env.NODE_ENV === 'development';
-const isProdMode = !isDevMode;
-console.log('process.env: ', process.env);
+
 function getFileName(ext){
-    return isProdMode ? `[name].${ext}` : `[name].[hash].${ext}`;
+    return `[name].${ext}`;
 }
 
 const PATHS = {
@@ -52,7 +50,7 @@ module.exports = {
                     {
                         loader: MiniCSSExtractPlugin.loader,
                         options: {
-                            hmr: isDevMode,
+                            hmr: true,
                             reloadAll: true
                         }
                     },
@@ -65,7 +63,7 @@ module.exports = {
                     {
                         loader: MiniCSSExtractPlugin.loader,
                         options: {
-                            hmr: isDevMode,
+                            hmr: true,
                             reloadAll: true
                         }
                     },

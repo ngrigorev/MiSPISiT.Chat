@@ -10,13 +10,15 @@ block content
     .container
         .row
             select#chat.form-control
-                option(value="ws://192.168.1.38:500") My Chat
-                option(value="") Other Chat 1
-                option(value="") Other Chat 2
+                option() My Chat
+                option() Other Chat 1
+                option() Other Chat 2
             
-            input#name.form-control(type="text", value="NG", placeholder="Input your name", required)
+            input#name.form-control(value="NG", 
+                placeholder="Input your name")
             
             #chat-box.form-control
                 #chat-content
             
-            textarea#text.form-control(rows="3", placeholder="Input your message", required)
+            textarea#text.form-control(rows="3", 
+            placeholder="Input your message and press Enter")

@@ -15,7 +15,7 @@ $(document).ready(() => {
         
         ws = new WebSocket($chat.val()),
     
-        ws.onmessage = function (message) {
+        ws.onmessage = message => {
             let msg = JSON.parse(message.data);
             let htmlMessage = 
             `<div class="message alert alert-light ${msg.name == $name.val() ? "message-right" : "message-left"}">
@@ -41,5 +41,6 @@ $(document).ready(() => {
         };
     });
 
+    $chat.find('option')[0].value = window.location.origin.replace(/^https?/, 'ws');
     $chat.trigger("change");
 });
