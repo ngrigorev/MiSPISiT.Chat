@@ -5,16 +5,13 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "webpack"
   },
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "express": "^4.17.1"
-=======
     "express": "^4.17.1",
-    "express-ws": "^4.0.0",
     "ws": "^7.2.1"
   },
   "devDependencies": {
@@ -34,7 +31,6 @@
     "style-loader": "^1.1.3",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
->>>>>>> origin/master
   },
   "engines": {
     "npm": "^6.11.3",

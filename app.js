@@ -1,34 +1,19 @@
-<<<<<<< HEAD
-const path = require("path");
-const express = require("express");
-
-//#region web server
-=======
 const path = require('path');
 const express = require('express');
+const {Server} = require('ws');
+
 const clients = new Set();
->>>>>>> origin/master
 const port = process.env.PORT || 80;
-const app = express();
-const expressWs = require('express-ws')(app);
+const server = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
+server.use(express.static(path.join(__dirname, 'Client/dist')));
 
-<<<<<<< HEAD
-app.get("/", (req, res) => {
+server.use((req, res) => {
     res.sendFile('index.html');
 });
 
-app.listen(port, () => {
-    console.log(`Web run on http://localhost:${port}`);
-});
-//#endregion
-=======
-app.get('/', (req, res) => {
-    res.sendFile('/Client/dist/index.html');
-});
-
-app.ws('/', (ws, req, res) => {
+const wss = new Server({ server });
+wss.on('connection', ws => {
     clients.add(ws);
 
     ws.on('message', function (message) {
@@ -42,7 +27,6 @@ app.ws('/', (ws, req, res) => {
     });
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Web run on http://localhost:${port}`);
 });
->>>>>>> origin/master
