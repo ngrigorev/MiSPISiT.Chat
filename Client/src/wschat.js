@@ -41,6 +41,6 @@ $(document).ready(() => {
         };
     });
 
-    $chat.find('option')[0].value = window.location.origin.replace(/^https?/, 'ws');
+    $chat.find('option')[0].value = window.location.origin.replace(/^http/, 'ws');
     $chat.trigger("change");
 });
