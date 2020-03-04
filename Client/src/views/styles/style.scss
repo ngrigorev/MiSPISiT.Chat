@@ -1,0 +1,89 @@
+%flexbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html, body{
+    height: 100%;            
+}
+body{
+	@extend %flexbox;
+	flex-direction: column;
+    background: url("../assets/science.jpg") no-repeat; 
+    background-size: 100% 100%;
+}
+.row{
+	@extend %flexbox;
+
+	%chat{
+		max-width: 600px;
+		box-sizing: border-box;
+	}
+
+	#chat{
+		@extend %chat;
+	}
+
+	#name{
+		@extend %chat;
+	}
+
+	#text{
+		@extend %chat;
+	}
+
+	#chat-box {
+		@extend %chat;
+		height: 20em;
+		background-color: rgba(0, 128, 128, 0.1);
+		overflow-y: auto;
+	}
+
+	.message {
+		width: 70%;
+		margin: 10px auto 30px auto;
+
+		.username{
+			font-weight: bold;
+		}
+	}
+
+	@mixin msg-option($color-top, $color-right, $color-bottom, $color-left){
+		content: ' '; 
+		position: absolute;
+		width: 0; 
+		height: 0;
+		top: 100%; 
+		border: 10px solid;
+		border-color: $color-top $color-right $color-bottom $color-left; 
+	}
+
+	.message-right{
+		margin-right: 0;
+
+		&:before {  
+			@include msg-option(#ced4da, #ced4da, transparent, transparent);
+			right: 20px; 
+		}
+
+		&:after { 
+			@include msg-option(#fff, #fff, transparent, transparent);
+			right: 20px; 
+		}
+	}
+	
+	.message-left{
+		margin-left: 0;
+
+		&:before { 
+			@include msg-option(#ced4da, transparent, transparent, #ced4da); 
+			left: 20px; 
+		}
+		
+		&:after { 
+			@include msg-option(#fff, transparent, transparent, #fff); 
+			left: 20px; 
+		}
+	}
+}
