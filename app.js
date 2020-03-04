@@ -1,32 +1,37 @@
 const path = require('path');
 const express = require('express');
-const {Server} = require('ws');
+const WebSocketServer = require("ws").Server;
+const http = require("http");
 
 const clients = new Set();
 const port = process.env.PORT || 80;
-const server = express();
+const app = express();
 
-server.use(express.static(path.join(__dirname, 'Client/dist')));
-
-server.use((req, res) => {
-    res.sendFile('index.html');
+app.use(express.static(path.join(__dirname, 'Client/dist')));
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, 'Client/dist/index.html'));
 });
 
-const wss = new Server({ server });
-wss.on('connection', ws => {
-    clients.add(ws);
+const server = http.createServer(app);
 
-    ws.on('message', function (message) {
+server.listen(port, () => {
+    console.log(`Web run on http://localhost:${port}`);
+});
+
+const wss = new WebSocketServer({server: server})
+
+wss.on('connection', socket => {
+    console.log('new user');
+    clients.add(socket);
+
+    socket.on('message', function (message) {
+        console.log('msg: ', message);
         for (let i of clients) {
             i.send(message);
         }
     });
 
     socket.on('close', function () {
-        clients.delete(ws);
+        clients.delete(socket);
     });
-});
-
-server.listen(port, () => {
-    console.log(`Web run on http://localhost:${port}`);
 });
